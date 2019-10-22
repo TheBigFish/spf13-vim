@@ -49,8 +49,8 @@ spf13 中已经配置好 youcompleteme 选项
 
 ### 不确定是否是必须的步骤
 
-已安装 LLVM-9.0.0-win64.exe
-已安装 Microsoft Visual C++ Redistributable 2017 （VC_redist.x64.exe）
+- 已安装 LLVM-9.0.0-win64.exe
+- 已安装 Microsoft Visual C++ Redistributable 2017 （VC_redist.x64.exe）
 
 ## 快捷键
 
