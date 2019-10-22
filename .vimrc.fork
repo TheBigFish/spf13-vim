@@ -136,3 +136,13 @@ let g:ycm_key_invoke_completion = '<C-a>'   " ctrl + a 触发补全
 set completeopt=longest,menu
 
 let g:ycm_global_ycm_extra_conf = 'F:/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+nmap <F1> :!ctags --languages=c -R<CR>
+" -q 参数 windows 下需要 msys sort.exe 支持
+nmap <F2> :!cscope -Rbkq<CR>
+cd e:/work/project/tcm/tcm
+
+" for both ctrlp and NERDTree
+"  set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk
+
+set wildignore+=*tags*,cscope.*

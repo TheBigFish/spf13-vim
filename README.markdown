@@ -42,7 +42,33 @@ spf13 中已经配置好 youcompleteme 选项
 - 会同时安装 youcompleteme 插件。插件安装后手动删除此插件
 - 将 YouCompleteMe-for-windows 对应的文件解压至安装 bundle 文件夹
 
+## 安装 msys1.0
+
+对应网盘文件 *MSYS-1.0.10*
+加入path
+
 ### 不确定是否是必须的步骤
 
 已安装 LLVM-9.0.0-win64.exe
 已安装 Microsoft Visual C++ Redistributable 2017 （VC_redist.x64.exe）
+
+## 快捷键
+
+<ctrl+e> NERDTreeTabsToggle
+
+- ycm:
+  - `<leader>l` : 跳转到声明
+  - `<leader>f` : 跳转到定义
+  - `<leader>g` : 跳转到定义或声明
+
+- cscope
+  - `<leader>fa`: 交互式查找
+  - `<leader>l` : 局部列表
+  - `<leader>fs`: Find this C symbol
+  - `<leader>fg`: Find this definition
+  - `<leader>fd`: Find functions called by this function
+  - `<leader>fc`: Find functions calling this function
+  - `<leader>ft`: Find this text string
+  - `<leader>fe`: Find this egrep pattern
+  - `<leader>ff`: Find this file
+  - `<leader>fi`: Find files #including this file

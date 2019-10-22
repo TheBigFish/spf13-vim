@@ -23,3 +23,4 @@ endif
 
 Bundle 'ayu-theme/ayu-vim'
 Bundle "cscope.vim"
+Bundle "dkprice/vim-easygrep"
