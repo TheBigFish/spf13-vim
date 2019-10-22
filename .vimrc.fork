@@ -1,0 +1,138 @@
+
+let g:DisableAutoPHPFolding = 1
+
+let NERDTreeQuitOnOpen = 0
+set nospell
+
+if has('gui_running')
+    color wombat_btl
+    if has("gui_gtk2")
+        set guifont=Andale\ Mono\ Regular\ 11,Menlo\ Regular\ 10,Consolas\ Regular\ 11,Courier\ New\ Regular\ 13
+    else
+        set guifont=Andale\ Mono\ Regular:h14,Menlo\ Regular:h13,Consolas\ Regular:h14,Courier\ New\ Regular:h16
+    endif
+    if has('gui_macvim')
+        set transparency=2          " Make the window slightly transparent
+    endif
+endif
+
+" ShowMarks {
+    let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    " Don't leave on by default, use :ShowMarksOn to enable
+    let g:showmarks_enable = 0
+    " For marks a-z
+    highlight ShowMarksHLl gui=bold guibg=LightBlue guifg=Blue
+    " For marks A-Z
+    highlight ShowMarksHLu gui=bold guibg=LightRed guifg=DarkRed
+    " For all other marks
+    highlight ShowMarksHLo gui=bold guibg=LightYellow guifg=DarkYellow
+    " For multiple marks on the same line.
+    highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
+" }
+set autoread                    " automatically reads, helpful when VCS may have changed the file
+
+" NERDTree {
+    let g:nerdtree_tabs_open_on_gui_startup=0
+    let g:nerdtree_tabs_open_on_new_tab=1
+    let NERDTreeMouseMode=1
+" }
+
+" Make sure escape always takes you out of neocomplettion mode
+    iunmap <expr> <Esc>
+
+" Configure typescript completion
+
+autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
+set nocompatible
+set completeopt+=menuone
+
+"set rtp+=~/.vim/bundle/neocomplete.vim/
+"set rtp+=~/.vim/bundle/vimproc.vim/
+"set rtp+=~/.cache/neocomplete/tsuquyomi/
+
+filetype plugin indent on
+
+"let g:neocomplete#enable_at_startup = 1
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"    let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+
+
+:nmap <c-j> :exec 'resize '.(winheight(0)-5)<cr>
+:nmap <c-k> :exec 'resize '.(winheight(0)+5)<cr>
+:nmap <c-h> :exec 'vertical resize '.(winwidth(0)-20)<cr>
+:nmap <c-l> :exec 'vertical resize '.(winwidth(0)+20)<cr>
+
+if has("gui_running")
+    au GUIEnter * simalt ~x " 窗口启动时自动最大化
+    set guioptions-=m " 隐藏菜单栏
+    set guioptions-=T " 隐藏工具栏
+    set guioptions-=L " 隐藏左侧滚动条
+    set guioptions-=r " 隐藏右侧滚动条
+    set guioptions-=b " 隐藏底部滚动条
+    "set showtabline=0 " 隐藏Tab栏
+endif
+
+
+"set guifont=Consolas_for_Powerline_FixedD:h11
+set guifont=Ubuntu_Mono_derivative_Powerlin:h11:cANSI:qDRAFT
+
+
+
+let g:airline_theme = 'powerlineish'
+
+if has('gui_running')
+    let g:airline_powerline_fonts = 1
+else
+    let g:airline_powerline_fonts = 0
+endif
+
+let g:airline#extensions#tabline#enabled = 1 " NOTE: When you open lots of buffers and typing text, it is so slow.
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
+
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" s: Find this C symbol
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+
+" YouCompleteMe配置
+let g:ycm_error_symbol = '>!'
+let g:ycm_warning_symbol = '>*'
+nnoremap <leader>l :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F4> :YcmDiags<CR>
+
+let g:ycm_server_python_interpreter="C:/Python35/python.exe"
+let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+let g:ycm_confirm_extra_conf=0              " 打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_key_invoke_completion = '<C-a>'   " ctrl + a 触发补全
+set completeopt=longest,menu
+
+let g:ycm_global_ycm_extra_conf = 'F:/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
