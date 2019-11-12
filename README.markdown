@@ -47,15 +47,42 @@ spf13 中已经配置好 youcompleteme 选项
 对应网盘文件 *MSYS-1.0.10*
 加入path
 
+## 注意事项
+- python-mode 需要手动安装
+  `git clone --recurse-submodules https://github.com/python-mode/python-mode`
+  
 ### 不确定是否是必须的步骤
 
 - 已安装 LLVM-9.0.0-win64.exe
 - 已安装 Microsoft Visual C++ Redistributable 2017 （VC_redist.x64.exe）
 
+## 插件
+
+### python-mode
+- 运行
+:PymodeRun 或者 `<C-d>r`
+- 配置 venv  
+`:PymodeVirtualenv "env"`  # venv 当前文件目录下的 vitual 环境文件夹  
+或者在配置文件中设置
+```
+let g:pymode_virtualenv = 1
+let g:pymode_virtualenv_path = "venv"
+```
+
+
 ## 快捷键
 
 <ctrl+e> NERDTreeTabsToggle
-
+- vim-easymotion
+  - `<leader><leader>w` : 跳转到以单词为分格位置
+  - `<leader><leader>f` : 查找并快速跳转
+  - `<leader><leader>b` : 反向跳转到以单词为分格位置
+  - `<leader><leader>F` : 反向查找并快速跳转
+  - `<leader><leader>j` : 行为单位正向跳转
+  - `<leader><leader>k` : 行为单位反向跳转
+  - `<leader><leader>h` : 行内正向跳转
+  - `<leader><leader>l` : 行内反向跳转
+  - 
 - ycm:
   - `<leader>l` : 跳转到声明
   - `<leader>f` : 跳转到定义
@@ -63,7 +90,7 @@ spf13 中已经配置好 youcompleteme 选项
 
 - cscope
   - `<leader>fa`: 交互式查找
-  - `<leader>l` : 局部列表
+  - `<leader>fl` : 局部列表
   - `<leader>fs`: Find this C symbol
   - `<leader>fg`: Find this definition
   - `<leader>fd`: Find functions called by this function
@@ -72,3 +99,9 @@ spf13 中已经配置好 youcompleteme 选项
   - `<leader>fe`: Find this egrep pattern
   - `<leader>ff`: Find this file
   - `<leader>fi`: Find files #including this file
+
+- 鼠标
+zz: 居中
+zt: 页首
+zb: 页尾
+

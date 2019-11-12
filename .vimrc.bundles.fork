@@ -32,4 +32,7 @@ Bundle 'junegunn/gv.vim'
 
 Bundle 'xdg/vim-darkluma'
 Bundle 'kien/rainbow_parentheses.vim'
-"Bundle 'majutsushi/tagbar'
+Bundle 'tmhedberg/SimpylFold'
+Bundle 'nvie/vim-flake8'
+Bundle 'mbbill/code_complete'
+Bundle 'Chiel92/vim-autoformat'

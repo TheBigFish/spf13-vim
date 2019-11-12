@@ -13,3 +13,5 @@ let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', '
 
 let g:spf13_override_snippets = 1
 let g:spf13_use_powerline = 1
+
+let g:spf13_no_neosnippet_expand = 1
